@@ -74,29 +74,28 @@ class TextNoteContainer extends Component {
     
     if (title.trim() === '' && content.trim() === '') {
       alert('빈 노트는 저장되지 않습니다.')
-      return true
+    } else {
+      title = title.trim() === '' ? '빈 제목' : title 
+      
+      if (isNew) {
+        NoteActions.addNote({ 
+          title, 
+          content,
+          id: randomKey(),
+          notebook: selectedNotebook
+        })
+      } else {
+        const { id } = this.props
+        
+        NoteActions.modifyNote({ 
+          id,
+          title, 
+          content,
+          notebook: selectedNotebook
+        })
+      }
     }
    
-    title = title.trim() === '' ? '빈 제목' : title 
-    
-    if (isNew) {
-      NoteActions.addNote({ 
-        title, 
-        content,
-        id: randomKey(),
-        notebook: selectedNotebook
-      })
-    } else {
-      const { id } = this.props
-      
-      NoteActions.modifyNote({ 
-        id,
-        title, 
-        content,
-        notebook: selectedNotebook
-      })
-    }
-
     this.handleGoBack();
   }
 

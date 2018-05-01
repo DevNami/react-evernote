@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
+import HomeDrawerContainer from 'containers/home/HomeDrawerContainer';
 import HomeHeader from 'components/home/HomeHeader';
-import HomeDrawer from 'components/home/HomeDrawer';
 import Dimmer from 'components/common/Dimmer';
 
 class HomeHeaderContainer extends Component {
@@ -21,7 +21,7 @@ class HomeHeaderContainer extends Component {
       <React.Fragment>
         <Dimmer show={isOpened} />
         <HomeHeader isOpened={isOpened} setDrawer={setDrawer} />
-        <HomeDrawer isOpened={isOpened} setDrawer={setDrawer} />
+        <HomeDrawerContainer isOpened={isOpened} setDrawer={setDrawer} />
       </React.Fragment>
     )
   }
