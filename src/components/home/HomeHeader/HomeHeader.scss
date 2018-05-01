@@ -1,0 +1,21 @@
+@import 'styles/_variables.scss';
+
+.home-header {
+  background-color: $baseColor;
+  
+  .title-pnl {
+    height: 100%;
+    position: absolute;
+    left: 70px;
+    top: 0;
+    color: $white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-pnl {
+    float: right;
+  }
+}

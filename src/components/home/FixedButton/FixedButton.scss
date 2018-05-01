@@ -1,0 +1,32 @@
+@import 'styles/_variables.scss';
+
+.fixed-button {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 800;
+
+  ul {
+    padding: 0;
+
+    li {
+      margin-top: 15px;
+      list-style: none;
+      text-align: right;
+
+      .label {
+        font-size: 14px;
+        padding: 2px 4px;
+        display: inline-block;
+        background: #eee;
+      }
+
+      .button-box {
+        margin-left: 15px;
+        border-radius: 30px;
+        background: $baseColor;
+        display: inline-block;
+      }
+    }
+  }
+}
