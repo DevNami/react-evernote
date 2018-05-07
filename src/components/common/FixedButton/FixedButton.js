@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import enhanceWithClickOutside from 'react-click-outside';
 import IconButton from 'material-ui/IconButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -42,7 +42,7 @@ class FixedButton extends Component {
         </div>
       </li>
     ) : (
-      <React.Fragment>
+      <Fragment>
         <li>
           <div className="label">알리미</div>
           <div className="button-box" onClick={() => handleButtonClick(false)}>
@@ -75,7 +75,7 @@ class FixedButton extends Component {
             </IconButton>
           </div>
         </li>
-      </React.Fragment>
+      </Fragment>
     )
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from 'material-ui/IconButton';
 import ImageBlurOn from 'material-ui/svg-icons/image/blur-on';
 
-import './HomeDrawerHeader.scss';
+import './DrawerHeader.scss';
 
 const iconStyles = {
   navIcon: {
@@ -23,7 +23,7 @@ const IconButtonProps = {
   style: iconStyles.navStyle
 }
 
-const HomeDrawerHeader = () => {
+const DrawerHeader = () => {
   return (
     <header className="home-drawer-header">
       <IconButton {...IconButtonProps}>
@@ -35,4 +35,4 @@ const HomeDrawerHeader = () => {
   )
 }
 
-export default HomeDrawerHeader;
+export default DrawerHeader;

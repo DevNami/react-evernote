@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import FixedButton from 'components/home/FixedButton';
+import FixedButton from 'components/common/FixedButton';
 import Dimmer from 'components/common/Dimmer';
 
 class FixedButtonContainer extends Component {

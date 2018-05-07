@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-import HomeDrawerContainer from 'containers/home/HomeDrawerContainer';
+import DrawerContainer from 'containers/common/DrawerContainer';
 import HomeHeader from 'components/home/HomeHeader';
 import Dimmer from 'components/common/Dimmer';
 
@@ -10,19 +10,27 @@ class HomeHeaderContainer extends Component {
   }
 
   setDrawer = (isOpened) => {
-    this.setState({ isOpened });
+    this.setState({ isOpened })
   }
 
   render() {
-    const { isOpened } = this.state;
-    const { setDrawer } = this;
+    const { isOpened } = this.state
+    const { setDrawer } = this
+    const { history } = this.props
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Dimmer show={isOpened} />
-        <HomeHeader isOpened={isOpened} setDrawer={setDrawer} />
-        <HomeDrawerContainer isOpened={isOpened} setDrawer={setDrawer} />
-      </React.Fragment>
+        <HomeHeader 
+          isOpened={isOpened} 
+          setDrawer={setDrawer} 
+        />
+        <DrawerContainer 
+          isOpened={isOpened} 
+          setDrawer={setDrawer} 
+          history={history} 
+        />
+      </Fragment>
     )
   }
 }

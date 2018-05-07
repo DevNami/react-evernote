@@ -1,5 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Record, List } from 'immutable';
+import { randomKey } from 'lib/common';
 
 const ADD_NOTEBOOK = 'new/ADD_NOTEBOOK';
 
@@ -11,13 +12,18 @@ export const actionCreators = {
 
 const initialState = Record({
   list: List([
-    { name: '첫 번째 노트북' },
-    { name: '두 번째 노트북' },
-    { name: '세 번째 노트북' },
+    { id: randomKey(), name: '첫 번째 노트북' },
+    { id: randomKey(), name: '두 번째 노트북' },
+    { id: randomKey(), name: '세 번째 노트북' },
   ]),
   index: 0
 })();
 
 export default handleActions({
-  [ADD_NOTEBOOK]: (state, action) => state.update('list', list => list.push(action.payload)),
+  [ADD_NOTEBOOK]: (state, action) => {
+    return state.update('list', list => list.push({
+      ...action.payload,
+      id: randomKey()
+    }))
+  },
 }, initialState)

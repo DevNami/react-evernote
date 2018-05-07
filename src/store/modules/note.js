@@ -1,5 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Record, List } from 'immutable';
+import { randomKey } from 'lib/common';
 
 const ADD_NOTE = 'note/ADD_NOTE';
 const MODIFY_NOTE = 'note/MODIFY_NOTE';
@@ -28,16 +29,22 @@ const Note = Record({
 
 const initialState = Record({
   list: List([
-    Note({ id:'111', title: 'Title1', content: 'Content1', notebook: '첫 번째 노트북', c_date: new Date() }),
-    Note({ id:'222', title: 'Title2', content: 'Content2', notebook: '세 번째 노트북', c_date: new Date() }),
-    Note({ id:'333', title: 'Title3', content: 'Content3', notebook: '세 번째 노트북', c_date: new Date() }),
-    Note({ id:'444', title: 'Title4', content: 'Content4', notebook: '두 번째 노트북', c_date: new Date() }),
+    Note({ id: randomKey(), title: 'Title1', content: 'Content1', notebook: '첫 번째 노트북', c_date: new Date() }),
+    Note({ id: randomKey(), title: 'Title2', content: 'Content2', notebook: '세 번째 노트북', c_date: new Date() }),
+    Note({ id: randomKey(), title: 'Title3', content: 'Content3', notebook: '세 번째 노트북', c_date: new Date() }),
+    Note({ id: randomKey(), title: 'Title4', content: 'Content4', notebook: '두 번째 노트북', c_date: new Date() }),
   ]),
   selectedNote: null
 })();
 
 export default handleActions({
-  [ADD_NOTE]: (state, action) => state.update('list', list => list.push(new Note(action.payload))),
+  [ADD_NOTE]: (state, action) => 
+    state.update('list', list => 
+      list.push(new Note({
+        ...action.payload,
+        id: randomKey()
+      }))
+    ),
 
   [MODIFY_NOTE]: (state, action) => {
     const { list } = state

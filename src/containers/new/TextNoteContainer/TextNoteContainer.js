@@ -2,10 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import TextNoteHeader from 'components/new/TextNoteHeader';
 import TextNoteMain from 'components/new/TextNoteMain';
-import NotebookAdd from 'components/new/NotebookAdd';
+import NotebookAdd from 'components/common/NotebookAdd';
 
 import { NoteActions, NotebookActions } from 'store/actionCreators';
-import { randomKey } from 'lib/common';
 
 class TextNoteContainer extends Component {
   state = {
@@ -81,7 +80,6 @@ class TextNoteContainer extends Component {
         NoteActions.addNote({ 
           title, 
           content,
-          id: randomKey(),
           notebook: selectedNotebook
         })
       } else {

@@ -7,7 +7,7 @@ import { yellow600 } from 'material-ui/styles/colors';
 
 const TextNote = <Avatar icon={<ActionAssignment />} backgroundColor={yellow600} />
 
-const Note = ({ note: { id, title, c_date }, handleClick }) => (
+const NoteItem = ({ note: { id, title, c_date }, handleClick }) => (
   <ListItem
     leftAvatar={TextNote}
     primaryText={title}
@@ -18,4 +18,4 @@ const Note = ({ note: { id, title, c_date }, handleClick }) => (
   
 
 
-export default Note;
+export default NoteItem;
